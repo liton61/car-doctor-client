@@ -4,7 +4,7 @@ import logo from '../../assets/icons/logo.svg';
 
 const Header = () => {
     const navItems = <>
-        <li className="text-base font-medium"><Link to="/home">Home</Link></li>
+        <li className="text-base font-medium"><Link to="/">Home</Link></li>
         <li className="text-base font-medium"><Link to="/about">About</Link></li>
         <li className="text-base font-medium"><Link to="/service">Service</Link></li>
         <li className="text-base font-medium"><Link to="/blog">Blog</Link></li>
@@ -12,7 +12,7 @@ const Header = () => {
     </>
     return (
         <div>
-            <div className="navbar p-10 bg-base-200">
+            <div className="navbar p-5 bg-base-200">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -32,7 +32,7 @@ const Header = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <button className="btn btn-outline btn-warning">Appointment</button>
+                    <button className="btn btn-outline btn-primary">Appointment</button>
                 </div>
             </div>
         </div>
