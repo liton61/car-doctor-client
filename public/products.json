@@ -1,0 +1,38 @@
+[
+    {
+        "img": "https://i.postimg.cc/nhxzjK3S/1.png",
+        "title": "Car Engine Plug",
+        "price": 19.99,
+        "rating": 4.5
+    },
+    {
+        "img": "https://i.postimg.cc/D0svmmLK/2.png",
+        "title": "Car Air Filter",
+        "price": 29.99,
+        "rating": 4.2
+    },
+    {
+        "img": "https://i.postimg.cc/Kcgv0pVs/3.png",
+        "title": "Cools Led Light",
+        "price": 14.99,
+        "rating": 4.7
+    },
+    {
+        "img": "https://i.postimg.cc/QtvNXcBb/4.png",
+        "title": "Engine Car",
+        "price": 24.99,
+        "rating": 3.9
+    },
+    {
+        "img": "https://i.postimg.cc/mgVbPvzh/5.png",
+        "title": "Apollo Birla Car Tyres",
+        "price": 34.99,
+        "rating": 4.0
+    },
+    {
+        "img": "https://i.postimg.cc/QxGNwkZN/6.png",
+        "title": "Auto Battery Grey Transparent",
+        "price": 9.99,
+        "rating": 4.8
+    }
+]

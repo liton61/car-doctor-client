@@ -1,18 +1,43 @@
 import { Link } from "react-router-dom";
 import logo from '../../assets/icons/logo.svg';
+import { useContext } from "react";
+import { AuthContext } from "../authPage/Provider/AuthProvider";
 
 
 const Header = () => {
+    const { user, logOut } = useContext(AuthContext);
+    const handleLogOut = () => {
+        logOut()
+            .then(res => {
+                console.log(res.user);
+            })
+            .catch(error => {
+                console.log(error);
+            })
+    }
+
     const navItems = <>
-        <li className="text-base font-medium"><Link to="/">Home</Link></li>
-        <li className="text-base font-medium"><Link to="/about">About</Link></li>
-        <li className="text-base font-medium"><Link to="/service">Service</Link></li>
-        <li className="text-base font-medium"><Link to="/blog">Blog</Link></li>
-        <li className="text-base font-medium"><Link to="/contact">Contact</Link></li>
+        <li className="text-base font-medium"><Link to="/"><button>Home</button></Link></li>
+        {
+            user?.email ? <>
+                <li className="text-base font-medium"><Link to="/booking"><button>Booking</button></Link></li>
+                <li className="text-base font-medium">
+                    <Link to="/login">
+                        <button onClick={handleLogOut}>Log Out</button>
+                    </Link>
+                </li>
+            </>
+                :
+                <li className="text-base font-medium">
+                    <Link to="/login">
+                        <button>Login</button>
+                    </Link>
+                </li>
+        }
     </>
     return (
         <div>
-            <div className="navbar p-5 bg-base-200">
+            <div className="navbar p-5">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
