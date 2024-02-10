@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
-import { AuthContext } from "../../authPage/Provider/AuthProvider";
-import BookingRow from "../BookingRow/BookingRow";
+import { AuthContext } from "../../components/authPage/Provider/AuthProvider";
+import BookingRow from "../../components/checkOutPage/BookingRow/BookingRow";
 
 
 const Booking = () => {
