@@ -1,9 +1,22 @@
 // import { Link, NavLink } from "react-router-dom";
-import logo from '../assets/icons/logo.svg';
-import { Link, NavLink } from 'react-router-dom';
 
+import { useContext } from "react";
+import { AuthContext } from "../authentication/Provider/AuthProvider";
+import { Link, NavLink } from "react-router-dom";
+import logo from '../assets/icons/logo.svg';
 
 const Navbar = () => {
+    const { user, logOut } = useContext(AuthContext);
+
+    const handleSingOut = () => {
+        logOut()
+            .then(res => {
+                console.log(res.user);
+            })
+            .catch(error => {
+                console.log(error);
+            })
+    }
     return (
         <div>
             <div className="navbar bg-base-200">
@@ -80,9 +93,36 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <Link to="/login">
-                        <button className='btn btn-neutral'>Login</button>
-                    </Link>
+                    {
+                        user ?
+                            <div className="dropdown dropdown-end">
+                                <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                                    <div className="w-10 rounded-full">
+                                        <img alt="" src={user?.photoURL} />
+                                    </div>
+                                </div>
+                                <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
+                                    <li>
+                                        <a className="justify-between text-black">
+                                            {user?.displayName}
+                                        </a>
+                                    </li>
+                                    <li><a className='text-black'>{user?.email}</a></li>
+                                    <li className='text-red-600'><NavLink onClick={handleSingOut}
+                                        to="/login"
+                                        className={({ isActive, isPending }) =>
+                                            isPending ? "pending" : isActive ? "active" : ""
+                                        }
+                                    >
+                                        <i className="fa-solid fa-right-from-bracket"></i> Sing Out
+                                    </NavLink></li>
+                                </ul>
+                            </div>
+                            :
+                            <Link to="/login">
+                                <button className='btn btn-neutral'>Login</button>
+                            </Link>
+                    }
                 </div>
             </div>
         </div>
