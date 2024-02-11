@@ -5,6 +5,7 @@ import Products from "../../components/Products/Products";
 import Services from "../../components/Services/Services";
 import Stat from "../../components/Stat/Stat";
 import Team from "../../components/Team/Team";
+import Testimonials from "../../components/Testimonials/Testimonials";
 
 
 const Home = () => {
@@ -17,6 +18,7 @@ const Home = () => {
             <Products></Products>
             <Team></Team>
             <ChooseUs></ChooseUs>
+            <Testimonials></Testimonials>
         </div>
     );
 };
