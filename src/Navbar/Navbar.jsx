@@ -1,12 +1,13 @@
-// import { Link, NavLink } from "react-router-dom";
-
 import { useContext } from "react";
 import { AuthContext } from "../authentication/Provider/AuthProvider";
+import useAdmin from "../hooks/useAdmin";
 import { Link, NavLink } from "react-router-dom";
 import logo from '../assets/icons/logo.svg';
 
+
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
+    const [isAdmin] = useAdmin();
 
     const handleSingOut = () => {
         logOut()
@@ -58,6 +59,28 @@ const Navbar = () => {
                             >
                                 Contact
                             </NavLink></li>
+                            {
+                                user && isAdmin &&
+                                <li className="font-medium"><NavLink
+                                    to="/dashboard/adminHome"
+                                    className={({ isActive, isPending }) =>
+                                        isPending ? "pending" : isActive ? "active" : ""
+                                    }
+                                >
+                                    Dashboard
+                                </NavLink></li>
+                            }
+                            {
+                                user && !isAdmin &&
+                                <li className="font-medium"><NavLink
+                                    to="/dashboard/userHome"
+                                    className={({ isActive, isPending }) =>
+                                        isPending ? "pending" : isActive ? "active" : ""
+                                    }
+                                >
+                                    Dashboard
+                                </NavLink></li>
+                            }
                         </ul>
                     </div>
                     <div className="w-32 font-medium">
@@ -90,6 +113,28 @@ const Navbar = () => {
                         >
                             Contact
                         </NavLink></li>
+                        {
+                            user && isAdmin &&
+                            <li className="font-medium px-2"><NavLink
+                                to="/dashboard/adminHome"
+                                className={({ isActive, isPending }) =>
+                                    isPending ? "pending" : isActive ? "active" : ""
+                                }
+                            >
+                                Dashboard
+                            </NavLink></li>
+                        }
+                        {
+                            user && !isAdmin &&
+                            <li className="font-medium px-2"><NavLink
+                                to="/dashboard/userHome"
+                                className={({ isActive, isPending }) =>
+                                    isPending ? "pending" : isActive ? "active" : ""
+                                }
+                            >
+                                Dashboard
+                            </NavLink></li>
+                        }
                     </ul>
                 </div>
                 <div className="navbar-end">

@@ -3,6 +3,7 @@ import { AuthContext } from "../../authentication/Provider/AuthProvider";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import login from '../../assets/images/login/login.svg';
+import useAxiosPublic from "../../hooks/useAxiosPublic";
 
 
 
@@ -10,6 +11,7 @@ const Register = () => {
 
     const { createUser, profile } = useContext(AuthContext)
     const navigate = useNavigate();
+    const axiosPublic = useAxiosPublic();
 
     const handleRegister = e => {
         e.preventDefault();
@@ -19,10 +21,14 @@ const Register = () => {
         const password = form.password.value;
         const photo = form.photo.value;
 
+        const userInfo = { name, email };
+        // console.log(userInfo);
+
         createUser(email, password)
             .then(res => {
                 console.log(res.user)
                 profile(name, photo)
+                axiosPublic.post('/users', userInfo)
                 Swal.fire({
                     title: "Good job !",
                     text: "You you have successfully register !",
@@ -40,7 +46,7 @@ const Register = () => {
                 <div>
                     <img src={login} alt="" />
                 </div>
-                <div className="bg-white p-8 rounded-lg shadow-lg">
+                <div className="bg-white p-8 rounded border border-[#FF3811]">
                     <h2 className="text-2xl font-semibold text-gray-800 mb-2 text-center">Register</h2>
                     <form onSubmit={handleRegister}>
                         <div className="mb-2">

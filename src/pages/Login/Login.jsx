@@ -18,8 +18,8 @@ const Login = () => {
         googleLogin()
             .then(res => {
                 const usersInfo = {
-                    email: res.user?.email,
                     name: res.user?.displayName,
+                    email: res.user?.email,
                 }
                 axiosPublic.post('/users', usersInfo)
                     .then(res => {
@@ -38,8 +38,8 @@ const Login = () => {
         const email = form.email.value;
         const password = form.password.value;
 
-        const formInfo = { email, password };
-        console.log(formInfo);
+        // const formInfo = { email, password };
+        // console.log(formInfo);
 
         signIn(email, password)
             .then(res => {
