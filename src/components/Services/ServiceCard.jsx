@@ -5,7 +5,7 @@ const ServiceCard = ({ service }) => {
     const { title, img, price, } = service;
     return (
         <div>
-            <div className="card card-compact border rounded-none">
+            <div className="card card-compact border border-[#FF3811] rounded-none">
                 <figure><img className="h-48 w-full" src={img} alt="" /></figure>
                 <div className="card-body">
                     <h2 className="card-title">{title}</h2>

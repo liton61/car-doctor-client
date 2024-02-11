@@ -7,7 +7,7 @@ const AboutUs = () => {
             <div className="hero min-h-screen">
                 <div className="hero-content flex-col lg:flex-row lg:w-3/4 mx-auto lg:px-0 px-5">
                     <img src={aboutImg} className="lg:w-1/2 rounded" />
-                    <div className='lg:w-1/2 lg:pl-10'>
+                    <div className='lg:w-1/2 lg:pl-10 lg:pb-0 pb-16'>
                         <h1 className="text-4xl font-bold">We are qualified & of <span className='text-[#FF3811]'> experience</span> in this field.</h1>
                         <p className="py-5 text-justify">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomized words which don't look even slightly believable. </p>
                         <div className='flex justify-evenly'>
