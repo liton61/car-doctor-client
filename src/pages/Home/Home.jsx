@@ -1,5 +1,6 @@
 import AboutUs from "../../components/AboutUs/AboutUs";
 import Banner from "../../components/Banner/Banner";
+import ChooseUs from "../../components/ChooseUs/ChooseUs";
 import Products from "../../components/Products/Products";
 import Services from "../../components/Services/Services";
 import Stat from "../../components/Stat/Stat";
@@ -15,6 +16,7 @@ const Home = () => {
             <Stat></Stat>
             <Products></Products>
             <Team></Team>
+            <ChooseUs></ChooseUs>
         </div>
     );
 };
